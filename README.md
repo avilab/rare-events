@@ -1,7 +1,7 @@
 Prevalence of HTLVI/II infection in Estonian population: modeling zero events
 ================
 Taavi PĆ¤ll
-Thu Mar 07 11:18:21 2019
+Thu Mar 07 11:21:16 2019
 
 Load libraries.
 ---------------
@@ -32,7 +32,7 @@ ggplot(tibble(x, pe)) +
     labs(caption = "Dashed line, 95% probability of an event.")
 ```
 
-![](README_files/figure-markdown_github/unnamed-chunk-2-1.png)
+![](README_files/figure-markdown_github/rule-three-1.png)
 
 Sample size at 95% probability of an event.
 
@@ -103,7 +103,7 @@ coef(m)
 ```
 
     ##     shape1     shape2 
-    ##  0.1610406 23.5330062
+    ##  0.1619916 21.1337837
 
 ``` r
 alpha0 <- m$estimate[1]
@@ -119,7 +119,7 @@ ggplot(data = tibble(x = 0), mapping = aes(x = x)) +
     xlim(0.001, 0.1)
 ```
 
-![](README_files/figure-markdown_github/unnamed-chunk-12-1.png)
+![](README_files/figure-markdown_github/eb-prior-1.png)
 
 Estimate upper bound for range of sample sizes.
 
@@ -133,4 +133,4 @@ ggplot(data = tibble(x = 0), mapping = aes(x = x)) +
          caption = "Dashed line, sample size in current study.")
 ```
 
-![](README_files/figure-markdown_github/unnamed-chunk-13-1.png)
+![](README_files/figure-markdown_github/eb-estimate-1.png)

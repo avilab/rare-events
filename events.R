@@ -19,7 +19,7 @@ library(ggplot2)
 #' 
 #' The rule of succession states that the estimated probability of event is (F + 1)/(N + 2). 
 #' Where F is the number of events.   
-#+
+#+ rule-three
 F <- 0
 N <- 138
 p <- (F + 1) / (N + 2)
@@ -75,14 +75,14 @@ alpha0 <- m$estimate[1]
 beta0 <- m$estimate[2]
 
 #' Plot prior distribution.
-#+
+#+ eb-prior
 bfun <- function(x) dbeta(x, alpha0, beta0)
 ggplot(data = tibble(x = 0), mapping = aes(x = x)) + 
     stat_function(fun = bfun) + 
     xlim(0.001, 0.1)
 
 #' Estimate upper bound for range of sample sizes.
-#+
+#+ eb-estimate
 ggplot(data = tibble(x = 0), mapping = aes(x = x)) + 
     stat_function(fun = eb_estimate, args = list(a = alpha0, b = beta0)) + 
     xlim(1, 1000) +
