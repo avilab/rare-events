@@ -1,7 +1,7 @@
 Prevalence of HTLVI/II infection in Estonian population: modeling zero events
 ================
 taavi74
-Thu Mar 07 11:23:18 2019
+Thu Mar 07 11:24:35 2019
 
 Load libraries.
 ---------------
@@ -93,6 +93,7 @@ Estimate parameters for prior from beta distribution.
 ``` r
 obs <- c(bd, sw, ivf, idu)
 values <- sample(obs, 1000, replace = TRUE)
+set.seed(11)
 m <- MASS::fitdistr(values, dbeta, start = list(shape1 = 1, shape2 = 10))
 ```
 
@@ -103,7 +104,7 @@ coef(m)
 ```
 
     ##     shape1     shape2 
-    ##  0.1621865 20.5839227
+    ##  0.1630283 19.1264090
 
 ``` r
 alpha0 <- m$estimate[1]

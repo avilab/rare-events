@@ -65,6 +65,7 @@ idu <- 3.2 / 100
 #+ warning=FALSE
 obs <- c(bd, sw, ivf, idu)
 values <- sample(obs, 1000, replace = TRUE)
+set.seed(11)
 m <- MASS::fitdistr(values, dbeta, start = list(shape1 = 1, shape2 = 10))
 
 #' Estimated shape parameters.
