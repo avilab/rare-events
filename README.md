@@ -1,7 +1,7 @@
 Prevalence of HTLVI/II infection in Estonian population: modeling zero events
 ================
 Taavi PĆ¤ll
-Thu Mar 07 11:10:11 2019
+Thu Mar 07 11:18:21 2019
 
 Load libraries.
 ---------------
@@ -18,7 +18,7 @@ Rule of three (is next to useless)
 
 ### Laplace's rule of succession
 
-The rule of succession states that the estimated probability of failure is (F + 1)/(N + 2). Where F is the number of failures.
+The rule of succession states that the estimated probability of event is (F + 1)/(N + 2). Where F is the number of events.
 
 ``` r
 F <- 0
@@ -28,16 +28,13 @@ x <- 1:1000
 pe <- 1 - pbinom(0, size = x, prob = p)
 ggplot(tibble(x, pe)) +
     geom_line(aes(x, pe, group = 1)) +
-    geom_hline(yintercept = 0.95, linetype = "dashed")
+    geom_hline(yintercept = 0.95, linetype = "dashed") +
+    labs(caption = "Dashed line, 95% probability of an event.")
 ```
 
 ![](README_files/figure-markdown_github/unnamed-chunk-2-1.png)
 
-``` r
-sum(near(0.95, pe, tol = 0.0001))
-```
-
-    ## [1] 1
+Sample size at 95% probability of an event.
 
 ``` r
 x[near(0.95, pe, tol = 0.0001)]
@@ -106,7 +103,7 @@ coef(m)
 ```
 
     ##     shape1     shape2 
-    ##  0.1647473 19.1100558
+    ##  0.1610406 23.5330062
 
 ``` r
 alpha0 <- m$estimate[1]
@@ -122,7 +119,7 @@ ggplot(data = tibble(x = 0), mapping = aes(x = x)) +
     xlim(0.001, 0.1)
 ```
 
-![](README_files/figure-markdown_github/unnamed-chunk-11-1.png)
+![](README_files/figure-markdown_github/unnamed-chunk-12-1.png)
 
 Estimate upper bound for range of sample sizes.
 
@@ -136,4 +133,4 @@ ggplot(data = tibble(x = 0), mapping = aes(x = x)) +
          caption = "Dashed line, sample size in current study.")
 ```
 
-![](README_files/figure-markdown_github/unnamed-chunk-12-1.png)
+![](README_files/figure-markdown_github/unnamed-chunk-13-1.png)
