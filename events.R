@@ -1,6 +1,5 @@
 #' ---
 #' title: "Prevalence of HTLVI/II infection in Estonian population: modeling zero events"
-#' author: "Taavi Päll"
 #' output: github_document
 #' ---
 #' 

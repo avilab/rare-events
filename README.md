@@ -1,7 +1,7 @@
 Prevalence of HTLVI/II infection in Estonian population: modeling zero events
 ================
-Taavi PĆ¤ll
-Thu Mar 07 11:21:16 2019
+taavi74
+Thu Mar 07 11:23:18 2019
 
 Load libraries.
 ---------------
@@ -103,7 +103,7 @@ coef(m)
 ```
 
     ##     shape1     shape2 
-    ##  0.1619916 21.1337837
+    ##  0.1621865 20.5839227
 
 ``` r
 alpha0 <- m$estimate[1]
